@@ -1,0 +1,8 @@
+1.0e-10 = 1 * 10 ^ (-10)
+<expr> ::= <term> "*" <term> | <factor>
+<factor> ::= <number> | <power> 
+<power> ::= <base> "^" <exponent>
+<base> ::= <number> 
+<exponent> ::= <number> [('+' | '-') number]*
+<number> ::= <digit> | <number><digit>
+<digit> ::= "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
