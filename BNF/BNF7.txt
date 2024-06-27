@@ -1,0 +1,20 @@
+x=5;
+if x > 3 then 
+    y = x+2;
+else
+    y = x * (2+3);
+end;
+print y;
+
+BNF:
+<expr> ::= <assignment> | <control structure> | print <expr>
+<assignment> ::= <identifier> "=" "expr"
+<identifier> ::= "x"
+<control structure> ::= if <condition>: <expr> <else-list>
+<condition> ::= <identifier> <condition_operator> <term>
+<condition_operator> ::= "=" | ">" | "<" | ">=" | "<=" 
+<expr> ::= <identifier> "+" <number>
+<else-list> ::= <identifier> "*" <term> | "("<expr>")"
+print <expr> ::= <else-list>
+<number> ::= <digit> | <number><digit>
+<digit> ::= "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
