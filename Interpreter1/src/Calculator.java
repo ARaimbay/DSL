@@ -33,6 +33,13 @@ public class Calculator {
                 return operand1 + operand2;
             case "SUB":
                 return operand1 - operand2;
+            case "MUL":
+                return operand1 * operand2;
+            case "DIV":
+                if(operand2 == 0){
+                    throw new IllegalArgumentException("Division by zero is not allowed");
+                }
+                return operand1 / operand2;
             default:
                 throw new UnsupportedOperationException("Unsupported operation: " + operator);
         }
