@@ -24,18 +24,18 @@ public class Calculator {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            scanner.close();
+        }
+        scanner.close();
+    }
+    private static int evaluate(String operator, int operand1, int operand2){
+        switch (operator) {
+            case "ADD":
+                return operand1 + operand2;
+            case "SUB":
+                return operand1 - operand2;
+            default:
+                throw new UnsupportedOperationException("Unsupported operation: " + operator);
         }
 
-    private static int evaluate(String operator, int operand1, int operand2)
-       {
-         switch (operator) {
-             case "ADD":
-                 return operand1 + operand2;
-             case "SUB":
-                 return operand1 - operand2;
-             default:
-                throw new UnsupportedOperationException("Unsupported operation: " + operator);
-            }
-        }
-    }}
+    }
+}
