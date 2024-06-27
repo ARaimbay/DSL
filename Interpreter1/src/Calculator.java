@@ -40,6 +40,13 @@ public class Calculator {
                     throw new IllegalArgumentException("Division by zero is not allowed");
                 }
                 return operand1 / operand2;
+            case "MOD":
+                return operand1 % operand2;
+            case "POW":
+                if(operand1 == 0) {
+                    throw new IllegalArgumentException("Base can't be zero");
+                }
+                return operand1 ^ operand2;
             default:
                 throw new UnsupportedOperationException("Unsupported operation: " + operator);
         }
