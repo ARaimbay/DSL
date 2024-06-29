@@ -67,6 +67,12 @@ public class Lexer implements Iterable<Lexer.Token>{
                 return TokenType.SHOW;
             case "configs":
                 return TokenType.CONFIGS;
+            case "if":
+                return TokenType.IF;
+            case "else":
+                return TokenType.ELSE;
+            case "end":
+                return TokenType.END;
             default:
                 return TokenType.IDENTIFIER;
         }
@@ -148,7 +154,7 @@ public class Lexer implements Iterable<Lexer.Token>{
     }
 
     enum TokenType {
-        CONFIG, UPDATE, COMPUTE, SHOW, CONFIGS, STRING, NUMBER, IDENTIFIER, REFERENCES, ASSIGNMENT, OPERATOR
+        CONFIG, UPDATE, COMPUTE, SHOW, CONFIGS, STRING, NUMBER, IDENTIFIER, REFERENCES, ASSIGNMENT, OPERATOR, IF, ELSE, END
 
 
 
