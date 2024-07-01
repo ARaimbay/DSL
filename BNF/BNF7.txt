@@ -7,14 +7,22 @@ end;
 print y;
 
 BNF:
+<program> ::= <statement>|<program><separator><statement>
+<statement> ::= <expr> | <if_statement>
+<separator> ::= "\n" | ";"
+<if_statement> ::= "if" <condition> "{"<program>"}" <else_statement>?
+<else_statement> ::= "else" "{"<program>"}"
+//<condition> ::= "(" <expr> "==" <expr> ")" | "(" <expr> "!=" <expr> ")" | "(" <expr> ">" <expr> ")" | "(" <expr> "<" <expr> ")"
+<condition> ::= "(" <expr> <comparison> <expr> ")"
+<comparison> ::= "<"|">"|"=="|"<="|">="|"!="
+
 <expr> ::= <assignment> | <control structure> | print <expr>
 <assignment> ::= <identifier> "=" "expr"
 <identifier> ::= <letter> | <identifier><letter_or_digit>
 <letter_or_digit> ::= <letter> | <digit>
 <letter> ::= ""|"a"|"b"|"c"|"d"|"e"|"f"|"g"|"h"|"i"|"j"|"k"|"l"|"m"|"n"|"o"|"p"|"q"|"r"|"s"|"t"|"u"|"v"|"w"|"x"|"y"|"z"|"A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z"
 <control structure> ::= if <condition>: <expr> <else-list>
-<condition> ::= <identifier> <condition_operator> <term>
-<condition_operator> ::= "=" | ">" | "<" | ">=" | "<=" 
+
 <expr> ::= <identifier> "+" <number>
 <else-list> ::= <identifier> "*" <term> | "("<expr>")"
 print <expr> ::= <else-list>
