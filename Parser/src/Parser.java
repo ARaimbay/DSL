@@ -37,7 +37,7 @@ public class Parser {
     }
 
     private void consume(Token.Type type) {
-        if (currentToken.type == type) {
+        if (currentToken != null && currentToken.type == type) {
             currentPos++;
             if (currentPos < tokens.size()) {
                 currentToken = tokens.get(currentPos);
@@ -46,7 +46,7 @@ public class Parser {
             }
 
         } else {
-            throw new ParserException("Unexpected token: " + type);
+            throw new ParserException("Unexpected token: " + currentToken + "expected: " + type);
         }
     }
 
